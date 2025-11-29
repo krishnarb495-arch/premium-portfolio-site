@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RemoteTech Jobs 2025 – Curated Remote & Tech Roles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="RemoteTech Jobs 2025 is a premium remote jobs board for developers, designers, and tech talent. Curated roles, zero spam, built to convert hiring teams." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #050b1f;
+      --card: #070b26;
+      --card-soft: rgba(15, 23, 42, 0.85);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.14);
+      --accent-2: #38bdf8;
+      --accent-2-soft: rgba(56, 189, 248, 0.12);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --danger: #f97373;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 0% 0%, #0f172a 0, #020617 38%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    /* Header */
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: conic-gradient(from 180deg, #22c55e, #38bdf8, #a855f7, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3);
+    }
+
+    .brand-badge span {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #020617;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text strong {
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 9px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.16s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.65);
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      color: #022c22;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .hero-main {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.86));
+      border-radius: var(--radius-xl);
+      padding: 24px 20px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.22), transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.12), transparent 52%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 11px;
+      font-size: 0.75rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-soft);
+    }
+
+    .hero-pill span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 430px;
+      margin-bottom: 20px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .stat-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-2);
+    }
+
+    .hero-sidebar {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), transparent 60%),
+                  radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.18), transparent 55%),
+                  #020617;
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-sidebar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0 0, rgba(248, 250, 252, 0.04), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-sidebar-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .side-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+
+    .side-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .side-heading span {
+      color: var(--accent-2);
+    }
+
+    .side-text {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+      margin-bottom: 14px;
+    }
+
+    .side-metric-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .metric {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.78);
+      border-radius: 18px;
+      padding: 9px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .metric-value span {
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-left: 4px;
+    }
+
+    .side-footnote {
+      font-size: 0.7rem;
+      color: #cbd5f5;
+      opacity: 0.75;
+    }
+
+    /* Filters */
+
+    .filters-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 14px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .filters-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .field {
+      position: relative;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .input,
+    .select {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      padding: 8px 11px;
+      color: var(--text-main);
+      font-size: 0.8rem;
+      outline: none;
+      appearance: none;
+    }
+
+    .input:focus,
+    .select:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    .field-select-wrapper {
+      position: relative;
+    }
+
+    .field-select-wrapper::after {
+      content: "▾";
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .filters-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.76rem;
+      color: var(--text-soft);
+      margin-top: 3px;
+    }
+
+    .filters-meta-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .chip {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Layout: jobs + sidebar */
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* Job list */
+
+    .jobs-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .jobs-header-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .jobs-header-row h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .jobs-count {
+      font-size: 0.8rem;
+      color: var(--accent-2);
+    }
+
+    .jobs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .job-card {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.43);
+      padding: 11px 12px;
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.08), transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 10px;
+      cursor: pointer;
+      transition: border-color 0.16s ease-out, transform 0.12s ease-out, box-shadow 0.16s ease-out;
+    }
+
+    .job-card:hover {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 15px 38px rgba(15, 23, 42, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .job-main {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .job-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .job-title {
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .job-badge {
+      border-radius: 999px;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border: 1px solid rgba(74, 222, 128, 0.9);
+      color: #bbf7d0;
+      background: rgba(22, 163, 74, 0.16);
+    }
+
+    .job-company-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .job-company-row strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .job-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8px;
+      font-size: 0.75rem;
+    }
+
+    .job-salary {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .job-salary span {
+      color: var(--text-soft);
+      font-weight: 400;
+      margin-left: 3px;
+      font-size: 0.7rem;
+    }
+
+    .job-meta-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .meta-pill {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-soft);
+    }
+
+    .job-empty {
+      padding: 20px 6px 10px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    /* Sidebar */
+
+    .side-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 16px;
+    }
+
+    .side-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .company-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.8rem;
+    }
+
+    .company-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .company-main {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .company-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.15), transparent 65%),
+                  rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .company-meta span {
+      display: block;
+    }
+
+    .company-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .company-tagline {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .company-pill {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+    }
+
+    .cta-card {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 65%),
+                  radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.18), transparent 55%),
+                  #020617;
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.83rem;
+    }
+
+    .cta-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .cta-title span {
+      color: var(--accent-2);
+    }
+
+    .cta-text {
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      margin-bottom: 12px;
+    }
+
+    .cta-footnote {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 8px;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      margin-top: 26px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer span strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero,
+      .content-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-sidebar {
+        order: -1;
+      }
+
+      .job-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .job-meta {
+        align-items: flex-start;
+      }
+
+      .job-meta-bottom {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-main {
+        padding: 18px 16px;
+      }
+
+      .filters-row {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .filters-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .filters-card {
+        padding: 12px 13px 14px;
+      }
+
+      .page-shell {
+        padding-inline: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="brand">
+        <div class="brand-badge">
+          <span>RT</span>
+        </div>
+        <div class="brand-text">
+          <strong>RemoteTech Jobs 2025</strong>
+          <span>Premium remote &amp; tech jobs board</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" type="button">
+          <span class="pill-dot"></span>
+          Candidates
+        </button>
+        <a class="btn btn-primary"
+           href="mailto:hello@remotetechjobs.dev?subject=Post%20a%20job%20on%20RemoteTech%20Jobs&body=Share%20your%20job%20title%2C%20description%2C%20and%20company%20details%20%E2%80%94%20we%E2%80%99ll%20publish%20within%2024h."
+        >
+          Post a Job
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-inner">
+          <div class="hero-badge-row">
+            <div class="hero-pill">
+              <span>Curated</span> remote-first roles only
+            </div>
+            <div class="hero-pill">
+              No spam • No agencies
+            </div>
+          </div>
+          <h1 class="hero-title">
+            Build your <span>remote-first career</span> in 2025.
+          </h1>
+          <p class="hero-subtitle">
+            A premium job board dedicated to developers, designers, and operators
+            looking for high-signal, fully-remote roles at modern tech companies.
+          </p>
+          <div class="hero-cta-row">
+            <button class="btn btn-primary" type="button">
+              Browse live roles
+            </button>
+            <button class="btn btn-ghost" type="button">
+              Get weekly job digest
+            </button>
+          </div>
+          <div class="hero-meta-row">
+            <div class="hero-meta-chip">
+              <span class="stat-dot"></span>
+              <strong>24</strong>&nbsp;new roles added this week
+            </div>
+            <div class="hero-meta-chip">
+              Avg. salary <strong>$120k+</strong> • Timezone friendly
+            </div>
+            <div class="hero-meta-chip">
+              Built to convert hiring teams – perfect asset to resell
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-sidebar">
+        <div class="hero-sidebar-inner">
+          <div class="side-kicker">Client-ready layout</div>
+          <div class="side-heading">
+            Designed to <span>convert top talent</span>.
+          </div>
+          <p cl
