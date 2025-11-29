@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio – Premium Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium one-page portfolio website for freelancers, creators, and developers – client-ready and built for resale." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #070b1f;
+      --card: #0b1023;
+      --accent: #4ade80;
+      --accent-soft: rgba(74, 222, 128, 0.12);
+      --accent2: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.18);
+      --danger: #fb7185;
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.75);
+      --shadow-glow: 0 0 0 1px rgba(56, 189, 248, 0.25), 0 18px 60px rgba(15, 23, 42, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1d2348 0, #050816 45%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 18px 60px;
+    }
+
+    /* NAVBAR */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar-pill {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #4ade80, #22c55e 35%, #0f766e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b1023;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9), 0 16px 40px rgba(16, 185, 129, 0.65);
+    }
+
+    .logo-text-main {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .nav-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-pill span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .nav-cta {
+      border-radius: 999px;
+      padding: 8px 13px;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+      color: #020617;
+      box-shadow: var(--shadow-glow);
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 720px) {
+      .nav-links {
+        display: flex;
+        gap: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .nav-links a {
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+      .nav-links a:hover {
+        background: rgba(148, 163, 184, 0.1);
+        color: var(--text);
+      }
+    }
+
+    /* LAYOUT */
+    main {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1.1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        align-items: flex-start;
+      }
+    }
+
+    /* LEFT COLUMN – HERO + SECTIONS */
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 22px 20px 22px;
+      background: radial-gradient(circle at 0 0, rgba(74, 222, 128, 0.16), transparent 55%), radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.18), transparent 60%), radial-gradient(circle at 50% 120%, rgba(129, 140, 248, 0.25), #020617 90%);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(14px);
+    }
+
+    .chip.primary {
+      border-color: rgba(56, 189, 248, 0.6);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.21), rgba(56, 189, 248, 0.05));
+      color: #e0f2fe;
+    }
+
+    .chip small {
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin: 4px 0 8px;
+    }
+
+    @media (min-width: 720px) {
+      .hero-title {
+        font-size: 40px;
+      }
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #4ade80, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub b {
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-solid,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-solid {
+      border: none;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      color: #020617;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.86);
+      color: var(--text);
+    }
+
+    .btn-solid svg,
+    .btn-ghost svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .metric-card {
+      flex: 1;
+      min-width: 150px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+    }
+
+    .metric-value {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .metric-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #22c55e, #38bdf8);
+    }
+
+    .hero-footer-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-footer-note span.pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #e0f2fe;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* SECTIONS BELOW */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    @media (min-width: 780px) {
+      .grid-2 {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.8);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--muted);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .service-list,
+    .project-list,
+    .testimonial-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .service-item,
+    .project-item,
+    .testimonial-item {
+      padding: 10px 11px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.93), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      display: grid;
+      gap: 4px;
+    }
+
+    .label-pill {
+      font-size: 11px;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .item-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .item-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .item-link {
+      font-size: 11px;
+      color: #a5b4fc;
+    }
+
+    .project-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .mini-pill {
+      font-size: 10px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.65);
+      color: #e0e7ff;
+    }
+
+    .mini-pill.alt {
+      background: rgba(22, 163, 74, 0.7);
+      color: #dcfce7;
+    }
+
+    .mini-pill.light {
+      background: rgba(148, 163, 184, 0.25);
+      color: #e5e7eb;
+    }
+
+    /* RIGHT PANEL */
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .status-card {
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.24), transparent 55%), radial-gradient(circle at 120% 0%, rgba(248, 250, 252, 0.2), transparent 50%), #020617;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .status-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .status-pill {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .status-highlight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.92);
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+    }
+
+    .status-highlight span.dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+    }
+
+    .contact-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .contact-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 4px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text);
+      padding: 9px 10px;
+      font-size: 12px;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+    }
+
+    .contact-note {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .contact-btn {
+      margin-top: 4px;
+      width: 100%;
+      border-radius: 999px;
+      padding: 9px 12px;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      color: #020617;
+      box-shadow: var(--shadow-glow);
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    footer a {
+      color: #a5b4fc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page" id="top">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="avatar-pill">Y</div>
+        <div>
+          <div class="logo-text-main">Your Name</div>
+          <div class="logo-text-sub">Designer • Developer • Creator</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+      </div>
+
+      <div class="nav-right">
+        <div class="nav-pill">
+          <span class="dot"></span>
+          <span>Open for projects</span>
+        </div>
+        <button class="nav-cta" onclick="scrollToSection('contact')">
+          Hire me
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <!-- LEFT SIDE: Hero & core sections -->
+      <section>
+        <div class="hero-card" id="hero">
+          <div class="hero-chip-row">
+            <span class="chip primary">
+              🌟 Client-ready portfolio layout
+            </span>
+            <span class="chip">
+              💾 Built for resale & duplication
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Build your <span class="highlight">stand-out portfolio</span> in 2025.
+          </h1>
+
+          <p class="hero-sub">
+            A premium one-page portfolio layout for <b>freelancers, developers, and
+            creators</b> who want to showcase their work, collect client leads, and
+            sell their services – without spending weeks on design.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-solid" onclick="scrollToSection('contact')">
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M3 10h11.2m0 0L10 5m4.2 5L10 15" stroke="#020617" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Book a project call
+            </button>
+            <button class="btn-ghost">
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M4 5h12M4 10h9M4 15h6" stroke="#e5e7eb" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+              Download CV
+            </button>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <div class="metric-label">Completed projects</div>
+              <div class="metric-value">24+ client websites</div>
+              <div class="metric-bar">
+                <div class="metric-bar-fill" style="width: 82%"></div>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Client satisfaction</div>
+              <div class="metric-value">5.0 ★ average rating</div>
+              <div class="metric-bar">
+                <div class="metric-bar-fill" style="width: 96%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-footer-note">
+            <span class="pill">Built for freelancers</span>
+            <span>Perfect for Upwork, Fiverr, or direct-to-client deals.</span>
+          </div>
+        </div>
+
+        <!-- Grid sections -->
+        <div class="grid-2" id="work">
+          <!-- Projects -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Featured Work</div>
+              <span class="card-tag">Case-study ready</span>
+            </div>
+            <ul class="project-list">
+              <li class="project-item">
+                <span class="label-pill">Web App</span>
+                <div class="item-title">Client Dashboard for SaaS Startup</div>
+                <div class="item-meta">
+                  Analytics dashboard with real-time metrics, clean typography,
+                  and responsive layout for desktop & mobile.
+                </div>
+                <div class="project-pill-row">
+                  <span class="mini-pill">React</span>
+                  <span class="mini-pill alt">Tailwind</span>
+                  <span class="mini-pill light">Conversion-focused</span>
+                </div>
+              </li>
+              <li class="project-item">
+                <span class="label-pill">Portfolio</span>
+                <div class="item-title">Brand Designer Personal Site</div>
+                <div class="item-meta">
+                  Story-driven portfolio with hero case studies, gallery,
+                  and booking form integrated with Calendly.
+                </div>
+                <div class="project-pill-row">
+                  <span class="mini-pill">Next.js</span>
+                  <span class="mini-pill alt">Framer Motion</span>
+                  <span class="mini-pill light">Dark mode</span>
+                </div>
+              </li>
+              <li class="project-item">
+                <span class="label-pill">Landing Page</span>
+                <div class="item-title">Online Course Launch Page</div>
+                <div class="item-meta">
+                  High-converting long-form sales page with testimonials,
+                  FAQ, and multiple CTA sections.
+                </div>
+                <div class="project-pill-row">
+                  <span class="mini-pill">HTML</span>
+                  <span class="mini-pill alt">CSS</span>
+                  <span class="mini-pill light">Email capture</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Services -->
+          <article class="card" id="services">
+            <div class="card-header">
+              <div class="card-title">Services</div>
+              <span class="card-tag">Built to sell</span>
+            </div>
+            <ul class="service-list">
+              <li class="service-item">
+                <div class="item-title">Custom Portfolio Website</div>
+                <div class="item-meta">
+                  Bespoke one-page or multi-page portfolio tailored to your brand,
+                  optimized for mobile and client conversions.
+                </div>
+              </li>
+              <li class="service-item">
+                <div class="item-title">SaaS / Startup Landing Page</div>
+                <div class="item-meta">
+                  Modern, gradient-driven landing pages designed to convert traffic
+                  into demo calls, sign-ups, or paid users.
+                </div>
+              </li>
+              <li class="service-item">
+                <div class="item-title">Design to Code</div>
+                <div class="item-meta">
+                  Turn Figma or Adobe XD designs into fast, production-ready
+                  HTML, CSS, and JavaScript.
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- About + Testimonials -->
+        <div class="grid-2" style="margin-top:14px" id="about">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">About You</div>
+              <span class="card-tag">Human, not generic</span>
+            </div>
+            <div class="card-body">
+              <p>
+                I’m <b>Your Name</b>, a self-taught designer & front-end developer
+                helping creators & businesses look more premium online. I combine
+                clean layouts, subtle motion, and conversion-first thinking to
+                build websites that feel both modern and reliable.
+              </p>
+              <p>
+                Over the last few years I’ve worked with coaches, SaaS founders,
+                agencies, and solo creators across multiple countries – often
+                starting from a blank page and ending with a fully-launched
+                brand presence.
+              </p>
+              <p>
+                Outside of client work, I build ready-to-use website templates
+                that other freelancers can resell to their own clients.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Client Feedback</div>
+              <span class="card-tag">Social proof</span>
+            </div>
+            <ul class="testimonial-list">
+              <li class="testimonial-item">
+                <div class="item-title">“Looked like a $10k agency build.”</div>
+                <div class="item-meta">
+                  “The portfolio site elevated my brand overnight. My new clients
+                  keep saying they assumed I was a full studio, not just one person.”
+                </div>
+                <div class="item-link">— Alex, Product Designer</div>
+              </li>
+              <li class="testimonial-item">
+                <div class="item-title">“Fast, clean & conversion-focused.”</div>
+                <div class="item-meta">
+                  “We launched our SaaS landing page and saw sign-ups increase
+                  by 40% without changing the ad budget.”
+                </div>
+                <div class="item-link">— Maya, SaaS Founder</div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- RIGHT SIDE: Status + Contact -->
+      <aside class="side-panel">
+        <section class="status-card">
+          <div class="status-title">Template Status</div>
+          <div class="status-sub">
+            This portfolio layout is client-ready and optimized to resell as a
+            premium “done-for-you” website.
+          </div>
+          <div class="status-row">
+            <span class="status-pill">One-page layout</span>
+            <span class="status-pill">Responsive design</span>
+            <span class="status-pill">SEO-friendly copy</span>
+          </div>
+          <div class="status-highlight">
+            <span>Ideal niche: freelancers, developers, and personal brands</span>
+            <span class="dot"></span>
+          </div>
+        </section>
+
+        <section class="contact-card" id="contact">
+          <div class="contact-title">Start a new project</div>
+          <div class="contact-sub">
+            Share a quick summary of your project. I usually reply within
+            24 hours with ideas, pricing, and next steps.
+          </div>
+          <form class="contact-form" onsubmit="handleFakeSubmit(event)">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Client full name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="client@email.com" />
+            </div>
+            <div class="field">
+              <label for="budget">Estimated budget</label>
+              <input id="budget" type="text" placeholder="$500 – $1,500" />
+            </div>
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea id="message" rows="3" placeholder="Portfolio website, SaaS landing page, or something custom?"></textarea>
+            </div>
+            <button class="contact-btn" type="submit">
+              Send project request
+            </button>
+            <div class="contact-note">
+              *Form is static by default. Connect it to Netlify Forms, Formspree,
+              or your preferred tool to receive submissions.
+            </div>
+          </form>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>© 2025 Your Name. All rights reserved.</span>
+      <span>Built as a premium resale-ready portfolio template.</span>
+    </footer>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({
+          top: el.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    function handleFakeSubmit(e) {
+      e.preventDefault();
+      alert("This is a static demo form. Connect it to Netlify Forms or Formspree to receive real inquiries.");
+    }
+  </script>
+</body>
+</html>
